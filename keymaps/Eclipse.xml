@@ -1,0 +1,6 @@
+<keymap version="1" name="Eclipse 复制" parent="Eclipse">
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="ctrl f" />
+  </action>
+  <action id="Replace" />
+</keymap>

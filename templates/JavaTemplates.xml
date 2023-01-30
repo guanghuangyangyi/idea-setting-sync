@@ -1,0 +1,37 @@
+<templateSet group="JavaTemplates">
+  <template name="m" value="**&#10; * @Author $user$&#10; * @MethodName $title$&#10; * @Description TODO $param$ $return$ $throws$&#10; * @Date $date$ $TIME$&#10;**/" shortcut="ENTER" description="方法注释" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="false" />
+    <variable name="title" expression="methodName()" defaultValue="" alwaysStopAt="false" />
+    <variable name="param" expression="groovyScript(&quot;def result=''; def stop=false; def params=\&quot;${_1}\&quot;.replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); if (params.size()==1 &amp;&amp; (params[0]==null || params[0]=='null' || params[0]=='')) { stop=true; }; if(!stop) { for(i=0; i &lt; params.size(); i++) {result +=((i==0) ? '\\r\\n' : '') + ((i &lt; params.size() - 1) ? ' * @param ' + params[i] + '\\r\\n' : ' * @param ' + params[i] + '')}; }; return result;&quot;, methodParameters())" defaultValue="" alwaysStopAt="false" />
+    <variable name="return" expression="groovyScript(&quot;def result=''; def data=\&quot;${_1}\&quot;; def stop=false; if(data==null || data=='null' || data=='' || data=='void' ) { stop=true; }; if(!stop) { result += '\\r\\n' + ' * @return ' + data; }; return result;&quot;, methodReturnType())" defaultValue="" alwaysStopAt="false" />
+    <variable name="throws" expression="" defaultValue="" alwaysStopAt="false" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="t" value="**&#10; * @version V1.0&#10; * @author $user$&#10; * @className $NAME$&#10; * @packageName $PACKAGE_NAME$&#10; * @description TODO&#10; * @date $DATE$ $TIME$&#10;**/" shortcut="ENTER" description="类型注释" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="user" expression="user()" defaultValue="" alwaysStopAt="false" />
+    <variable name="NAME" expression="methodName()" defaultValue="" alwaysStopAt="false" />
+    <variable name="PACKAGE_NAME" expression="" defaultValue="" alwaysStopAt="false" />
+    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="false" />
+    <variable name="TIME" expression="time()" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="c" value="**&#10; * @description $TODO$构造函数 $tags$&#10;**/ " shortcut="ENTER" description="构造函数" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="TODO" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="tags" expression="groovyScript(&quot;def result=''; def stop=false; def params=\&quot;${_1}\&quot;.replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); if (params.size()==1 &amp;&amp; (params[0]==null || params[0]=='null' || params[0]=='')) { stop=true; }; if(!stop) { for(i=0; i &lt; params.size(); i++) {result +=((i==0) ? '\\r\\n' : '') + ((i &lt; params.size() - 1) ? ' * @param: ' + params[i] + '\\r\\n' : ' * @param: ' + params[i] + '')}; }; return result;&quot;, methodParameters())" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="f" value="**&#10;*  $field$ &#10;**/" shortcut="ENTER" description="字段属性注释" toReformat="true" toShortenFQNames="true" useStaticImport="true">
+    <variable name="field" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>

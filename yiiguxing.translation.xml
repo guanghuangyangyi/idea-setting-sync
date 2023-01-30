@@ -1,0 +1,14 @@
+<application>
+  <component name="Settings">
+    <option name="baiduTranslateSettings">
+      <app-key>
+        <option name="appId" value="20221122001465415" />
+      </app-key>
+    </option>
+    <option name="ignoreRegExp" value="" />
+    <option name="showExplanation" value="true" />
+    <option name="showWordsOnStartup" value="true" />
+    <option name="translateDocumentation" value="true" />
+    <option name="translator" value="fanyi.baidu" />
+  </component>
+</application>
